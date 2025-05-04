@@ -98,7 +98,7 @@ function filterUnfundedOnly() {
     addGamesToPage(unfundedGames);
 
     // use the function we previously created to add the unfunded games to the DOM
-
+    // create a string that explains the number of unfunded games using the ternary operator
 }
 
 // show only games that are fully funded
@@ -137,6 +137,7 @@ allBtn.addEventListener("click", showAllGames);
  * Challenge 6: Add more information at the top of the page about the company.
  * Skills used: template literals, ternary operator
 */
+const totalGames = GAMES_JSON.length;
 
 // grab the description container
 const descriptionContainer = document.getElementById("description-container");
@@ -162,9 +163,7 @@ descriptionContainer.appendChild(paragraph);
 const firstGameContainer = document.getElementById("first-game");
 const secondGameContainer = document.getElementById("second-game");
 
-const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
-    return item2.pledged - item1.pledged;
-});
+const sortedGames = [...GAMES_JSON].sort((item1, item2) => item2.pledged - item1.pledged);
 
 // use destructuring and the spread operator to grab the first and second games
 const [topGame, secondTopGame] = sortedGames;
